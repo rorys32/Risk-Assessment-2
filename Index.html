@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Risk Assessment Onboarding - Forest Global Training Partners</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F5F5;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background: #2E7D32;
+            color: #FFFFFF;
+            border-radius: 8px 8px 0 0;
+        }
+        .header img {
+            max-width: 200px;
+            height: auto;
+        }
+        .wizard-step {
+            display: none;
+        }
+        .wizard-step.active {
+            display: block;
+        }
+        h2 {
+            color: #2E7D32;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group, .checkbox-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            margin: 0 10px 0 0;
+        }
+        button {
+            background: #2E7D32;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #output {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #F5F5F5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+            .header img {
+                max-width: 150px;
+            }
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://forestglobaltrainingpartners.com/wp-content/uploads/2023/10/FGTP-Logo.png" alt="FGTP Logo">
+            <h1>AI Risk Assessment Onboarding</h1>
+        </div>
+
+        <!-- Wizard Steps -->
+        <div id="step-1" class="wizard-step active">
+            <h2>Welcome</h2>
+            <p>Welcome to Forest Global Training Partners’ AI Risk Assessment Onboarding! This process will take about 10-15 minutes and will gather key details to tailor our assessment to your needs.</p>
+            <div class="navigation">
+                <button id="next-1">Get Started</button>
+            </div>
+        </div>
+
+        <div id="step-2" class="wizard-step">
+            <h2>AI Use Case</h2>
+            <label for="use-case">What is the primary purpose of your AI system?</label>
+            <input type="text" id="use-case" placeholder="e.g., Predictive maintenance">
+            <label for="industry">In which industry do you operate?</label>
+            <select id="industry">
+                <option value="">Select an industry</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Finance">Finance</option>
+                <option value="Retail">Retail</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="navigation">
+                <button id="prev-2">Previous</button>
+                <button id="next-2">Next</button>
+            </div>
+        </div>
+
+        <div id="step-3" class="wizard-step">
+            <h2>AI Model Details</h2>
+            <label for="ai-models">Which AI model(s) or platform(s) are you using?</label>
+            <input type="text" id="ai-models" placeholder="e.g., AWS SageMaker, OpenAI GPT">
+            <label>Hosting:</label>
+            <div class="radio-group">
+                <input type="radio" name="hosting" value="Self-hosted"> <label>Self-hosted</label>
+                <input type="radio" name="hosting" value="AWS"> <label>AWS</label>
+                <input type="radio" name="hosting" value="Azure"> <label>Azure</label>
+                <input type="radio" name="hosting" value="Other"> <label>Other</label>
+            </div>
+            <label for="technologies">Other technologies integrated with your AI system:</label>
+            <textarea id="technologies" placeholder="e.g., Python APIs, SQL database"></textarea>
+            <div class="navigation">
+                <button id="prev-3">Previous</button>
+                <button id="next-3">Next</button>
+            </div>
+        </div>
+
+        <div id="step-4" class="wizard-step">
+            <h2>Business Outcomes</h2>
+            <label for="outcomes">What business outcome(s) are you aiming to achieve?</label>
+            <input type="text" id="outcomes" placeholder="e.g., Reduce downtime, Increase efficiency">
+            <label for="metrics">How do you measure success?</label>
+            <input type="text" id="metrics" placeholder="e.g., 90% accuracy, 20% cost reduction">
+            <div class="navigation">
+                <button id="prev-4">Previous</button>
+                <button id="next-4">Next</button>
+            </div>
+        </div>
+
+        <div id="step-5" class="wizard-step">
+            <h2>AI Governance</h2>
+            <label>Do you have an AI governance team?</label>
+            <div class="radio-group">
+                <input type="radio" name="governance" value="Yes"> <label>Yes</label>
+                <input type="radio" name="governance" value="No"> <label>No</label>
+            </div>
+            <label for="governance-details">If Yes, describe your team/process:</label>
+            <textarea id="governance-details" placeholder="e.g., 5-person team, includes data scientist"></textarea>
+            <div class="navigation">
+                <button id="prev-5">Previous</button>
+                <button id="next-5">Next</button>
+            </div>
+        </div>
+
+        <div id="step-6" class="wizard-step">
+            <h2>Additional Context</h2>
+            <label for="concerns">Specific risks or concerns to focus on?</label>
+            <input type="text" id="concerns" placeholder="e.g., Data privacy, model drift">
+            <label for="notes">Anything else we should know?</label>
+            <textarea id="notes" placeholder="e.g., Scaling to multiple factories"></textarea>
+            <div class="navigation">
+                <button id="prev-6">Previous</button>
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        $(document).ready(function() {
+            let currentStep = 1;
+            const totalSteps = 6;
+
+            function showStep(step) {
+                $('.wizard-step').removeClass('active');
+                $(`#step-${step}`).addClass('active');
+                currentStep = step;
+            }
+
+            // Navigation Buttons
+            $('#next-1').click(() => showStep(2));
+            $('#prev-2').click(() => showStep(1));
+            $('#next-2').click(() => showStep(3));
+            $('#prev-3').click(() => showStep(2));
+            $('#next-3').click(() => showStep(4));
+            $('#prev-4').click(() => showStep(3));
+            $('#next-4').click(() => showStep(5));
+            $('#prev-5').click(() => showStep(4));
+            $('#next-5').click(() => showStep(6));
+            $('#prev-6').click(() => showStep(5));
+
+            // Submit Form
+            $('#submit').click(function() {
+                const data = {
+                    use_case: $('#use-case').val(),
+                    industry: $('#industry').val(),
+                    ai_models: $('#ai-models').val(),
+                    hosting: $('input[name="hosting"]:checked').val() || '',
+                    technologies: $('#technologies').val(),
+                    business_outcomes: $('#outcomes').val(),
+                    success_metrics: $('#metrics').val(),
+                    governance_team: $('input[name="governance"]:checked').val() || '',
+                    governance_details: $('#governance-details').val(),
+                    specific_concerns: $('#concerns').val(),
+                    additional_notes: $('#notes').val()
+                };
+
+                $('#output').html('<h2>Your Submission</h2><pre>' + JSON.stringify(data, null, 2) + '</pre>').show();
+                $('.wizard-step').hide();
+                $(this).hide();
+            });
+        });
+    </script>
+</body>
+</html>
